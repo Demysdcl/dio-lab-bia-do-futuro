@@ -272,6 +272,20 @@ h1 {
   padding: 18px;
 }
 
+.skeleton-card {
+  overflow: hidden;
+  position: relative;
+}
+
+.skeleton-card::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.62), transparent);
+  animation: skeleton-shimmer 1.35s infinite;
+}
+
 .investment-header {
   display: flex;
   justify-content: space-between;
@@ -287,6 +301,82 @@ h1 {
 .investment-header strong {
   color: #0e6c58;
   white-space: nowrap;
+}
+
+.skeleton-heading {
+  width: min(68%, 360px);
+}
+
+.skeleton-line,
+.skeleton-block,
+.skeleton-chart {
+  display: block;
+  border-radius: 8px;
+  background: #e6ece3;
+}
+
+.skeleton-category {
+  width: 120px;
+  height: 13px;
+}
+
+.skeleton-title {
+  width: 100%;
+  height: 22px;
+  margin-top: 10px;
+}
+
+.skeleton-price {
+  width: 104px;
+  height: 20px;
+}
+
+.skeleton-description {
+  width: 100%;
+  height: 14px;
+  margin-top: 18px;
+}
+
+.skeleton-description.short {
+  width: 72%;
+  margin-top: 8px;
+}
+
+.skeleton-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.skeleton-block {
+  height: 58px;
+}
+
+.skeleton-chart {
+  height: 150px;
+  margin-top: 18px;
+  position: relative;
+}
+
+.skeleton-chart span {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  height: 2px;
+  background: #d5dfd2;
+}
+
+.skeleton-chart span:nth-child(1) {
+  top: 36px;
+}
+
+.skeleton-chart span:nth-child(2) {
+  top: 76px;
+}
+
+.skeleton-chart span:nth-child(3) {
+  top: 116px;
 }
 
 .investment-card p,
@@ -373,6 +463,12 @@ h1 {
   color: #1d2f27;
 }
 
+@keyframes skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 @media (max-width: 860px) {
   .workspace {
     grid-template-columns: 1fr;
@@ -399,7 +495,8 @@ h1 {
   }
 
   .question-row,
-  .investment-facts {
+  .investment-facts,
+  .skeleton-facts {
     grid-template-columns: 1fr;
   }
 

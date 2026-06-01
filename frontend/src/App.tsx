@@ -144,12 +144,20 @@ export function App() {
           <div className="results-header">
             <div>
               <span className="section-label">Recomendacoes</span>
-              <h2>{investments.length > 0 ? `${investments.length} investimentos encontrados` : "Aguardando consulta"}</h2>
+              <h2>
+                {isLoading
+                  ? "Consultando recomendacoes"
+                  : investments.length > 0
+                    ? `${investments.length} investimentos encontrados`
+                    : "Aguardando consulta"}
+              </h2>
             </div>
             <span className="profile-pill">{selectedProfile}</span>
           </div>
 
-          {investments.length > 0 ? (
+          {isLoading ? (
+            <InvestmentSkeletonList />
+          ) : investments.length > 0 ? (
             <div className="investment-list">
               {investments.map((investment) => (
                 <InvestmentCard investment={investment} key={`${investment.categoria}-${investment.ativo}`} />
@@ -164,5 +172,38 @@ export function App() {
         </section>
       </section>
     </main>
+  );
+}
+
+function InvestmentSkeletonList() {
+  return (
+    <div className="investment-list" aria-label="Carregando investimentos" aria-live="polite">
+      {Array.from({ length: 3 }, (_, index) => (
+        <article className="investment-card skeleton-card" key={index}>
+          <div className="investment-header">
+            <div className="skeleton-heading">
+              <span className="skeleton-line skeleton-category" />
+              <span className="skeleton-line skeleton-title" />
+            </div>
+            <span className="skeleton-line skeleton-price" />
+          </div>
+
+          <span className="skeleton-line skeleton-description" />
+          <span className="skeleton-line skeleton-description short" />
+
+          <div className="skeleton-facts">
+            <span className="skeleton-block" />
+            <span className="skeleton-block" />
+            <span className="skeleton-block" />
+          </div>
+
+          <div className="skeleton-chart">
+            <span />
+            <span />
+            <span />
+          </div>
+        </article>
+      ))}
+    </div>
   );
 }
