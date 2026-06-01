@@ -1,0 +1,410 @@
+:root {
+  color: #17201a;
+  background: #f7f5ef;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled,
+input:disabled {
+  cursor: not-allowed;
+  opacity: 0.68;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.hero {
+  min-height: 310px;
+  display: flex;
+  align-items: end;
+  color: #ffffff;
+  background:
+    linear-gradient(90deg, rgba(15, 36, 28, 0.88), rgba(15, 36, 28, 0.34)),
+    url("https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1800&q=80") center/cover;
+}
+
+.hero-content {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 72px 0 44px;
+}
+
+.eyebrow,
+.section-label,
+.category {
+  display: inline-flex;
+  color: #08765f;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.hero .eyebrow {
+  color: #91f0d6;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  max-width: 760px;
+  margin-top: 10px;
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.hero p {
+  max-width: 680px;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+.workspace {
+  width: min(1120px, calc(100% - 32px));
+  margin: 28px auto 56px;
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.profile-panel,
+.results-panel,
+.investment-card,
+.empty-state,
+.alert,
+.message-log {
+  border: 1px solid #dfe5d6;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 18px 44px rgba(26, 45, 38, 0.08);
+}
+
+.profile-panel,
+.results-panel {
+  border-radius: 8px;
+  padding: 22px;
+}
+
+.profile-panel {
+  position: sticky;
+  top: 18px;
+}
+
+.profile-panel h2,
+.results-header h2 {
+  margin-top: 6px;
+  font-size: 1.35rem;
+}
+
+.profile-options {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.profile-option {
+  width: 100%;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid #d9dfd1;
+  border-radius: 8px;
+  padding: 14px;
+  color: #25352e;
+  background: #ffffff;
+  text-align: left;
+}
+
+.profile-option span {
+  font-weight: 800;
+}
+
+.profile-option small {
+  color: #5f6d66;
+}
+
+.profile-option.selected {
+  border-color: #08765f;
+  background: #e9fbf5;
+}
+
+.profile-description {
+  min-height: 88px;
+  margin-top: 18px;
+  color: #5c6a63;
+  line-height: 1.55;
+}
+
+.primary-button,
+.question-row button {
+  border: 0;
+  border-radius: 8px;
+  color: #ffffff;
+  background: #08765f;
+  font-weight: 800;
+}
+
+.primary-button {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 18px;
+}
+
+.question-form {
+  display: grid;
+  gap: 9px;
+}
+
+.question-form label {
+  color: #23352e;
+  font-weight: 800;
+}
+
+.question-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 112px;
+  gap: 10px;
+}
+
+.question-row input {
+  min-height: 48px;
+  min-width: 0;
+  border: 1px solid #d6ddd2;
+  border-radius: 8px;
+  padding: 0 14px;
+  color: #1d2f27;
+  background: #ffffff;
+}
+
+.question-row button {
+  min-height: 48px;
+}
+
+.alert {
+  margin-top: 16px;
+  border-color: #efb8b8;
+  border-radius: 8px;
+  padding: 14px;
+  color: #8a2525;
+  background: #fff4f2;
+}
+
+.message-log {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.message-log p {
+  color: #54625a;
+  line-height: 1.45;
+}
+
+.message-log .user {
+  color: #19362d;
+  font-weight: 700;
+}
+
+.results-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.profile-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  border-radius: 999px;
+  padding: 0 12px;
+  color: #0d5949;
+  background: #dff7ef;
+  font-size: 0.86rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.investment-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.investment-card,
+.empty-state {
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.investment-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.investment-header h3 {
+  margin-top: 6px;
+  color: #192922;
+  font-size: 1.15rem;
+}
+
+.investment-header strong {
+  color: #0e6c58;
+  white-space: nowrap;
+}
+
+.investment-card p,
+.empty-state p {
+  margin-top: 12px;
+  color: #5b6962;
+  line-height: 1.55;
+}
+
+.investment-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 18px 0 0;
+}
+
+.investment-facts div {
+  border-radius: 8px;
+  padding: 12px;
+  background: #f1f5ed;
+}
+
+.investment-facts dt {
+  color: #65736c;
+  font-size: 0.78rem;
+}
+
+.investment-facts dd {
+  margin: 4px 0 0;
+  color: #23352e;
+  font-weight: 800;
+}
+
+.chart {
+  width: 100%;
+  height: 160px;
+  margin-top: 18px;
+  overflow: visible;
+}
+
+.chart-grid {
+  stroke: #cbd7cf;
+  stroke-width: 1;
+}
+
+.chart-area {
+  fill: rgba(8, 118, 95, 0.12);
+}
+
+.chart-line {
+  fill: none;
+  stroke: #08765f;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+}
+
+.chart-dot {
+  fill: #f4b84a;
+  stroke: #ffffff;
+  stroke-width: 2;
+}
+
+.chart-label {
+  fill: #6a766f;
+  font-size: 0.62rem;
+}
+
+.chart-value {
+  fill: #1d2f27;
+  font-size: 0.64rem;
+  font-weight: 800;
+}
+
+.empty-state {
+  margin-top: 18px;
+  min-height: 220px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.empty-state h3 {
+  color: #1d2f27;
+}
+
+@media (max-width: 860px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero {
+    min-height: 360px;
+  }
+
+  .workspace {
+    width: min(100% - 24px, 1120px);
+    margin-top: 18px;
+  }
+
+  .profile-panel,
+  .results-panel {
+    padding: 16px;
+  }
+
+  .question-row,
+  .investment-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .results-header,
+  .investment-header {
+    flex-direction: column;
+  }
+}
