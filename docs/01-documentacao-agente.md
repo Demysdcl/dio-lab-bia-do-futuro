@@ -3,41 +3,42 @@
 ## Caso de Uso
 
 ### Problema
+>
 > Qual problema financeiro seu agente resolve?
 
-[Sua descrição aqui]
+Sou um investidor e preciso de sugestões de investimentos com base no meu perfil.
 
 ### Solução
+>
 > Como o agente resolve esse problema de forma proativa?
 
-[Sua descrição aqui]
+O agente lista os tipos de perfil com uma descrição sobre o perfil, onde o usuário irá selecionar o mais adequado para ele. Com a seleção feita o agente disponibiliza uma lista de investimentos, cada investimento deve ter a descrição de prazo de resgate, rentabilidade e uma pequena projeção gráfica de 6 meses com um investimento mínimo para o item. Os itens serão listados do mais recomendado ao menos recomendado.
 
 ### Público-Alvo
+>
 > Quem vai usar esse agente?
 
-[Sua descrição aqui]
+Pessoas que estão iniciando no mundo dos investimentos ou investidores experientes.
 
 ---
 
 ## Persona e Tom de Voz
 
 ### Nome do Agente
-[Nome escolhido]
+
+Investildo
 
 ### Personalidade
+>
 > Como o agente se comporta? (ex: consultivo, direto, educativo)
 
-[Sua descrição aqui]
+O agente terá um tom de consultivo, sempre buscando trazer as melhores opções para o usuário
 
 ### Tom de Comunicação
+>
 > Formal, informal, técnico, acessível?
 
-[Sua descrição aqui]
-
-### Exemplos de Linguagem
-- Saudação: [ex: "Olá! Como posso ajudar com suas finanças hoje?"]
-- Confirmação: [ex: "Entendi! Deixa eu verificar isso para você."]
-- Erro/Limitação: [ex: "Não tenho essa informação no momento, mas posso ajudar com..."]
+Informal, acessível e didático - [como um consultor de investimento mais amigável]
 
 ---
 
@@ -47,7 +48,7 @@
 
 ```mermaid
 flowchart TD
-    A[Cliente] -->|Mensagem| B[Interface]
+    A[Cliente] -->|Mensagem| B[Interface - chat]
     B --> C[LLM]
     C --> D[Base de Conhecimento]
     D --> C
@@ -61,7 +62,7 @@ flowchart TD
 |------------|-----------|
 | Interface | [ex: Chatbot em Streamlit] |
 | LLM | [ex: GPT-4 via API] |
-| Base de Conhecimento | [ex: JSON/CSV com dados do cliente] |
+| Base de Conhecimento | Pesquisas na internet sobre investimentos e finanças|
 | Validação | [ex: Checagem de alucinações] |
 
 ---
@@ -76,6 +77,9 @@ flowchart TD
 - [ ] [ex: Não faz recomendações de investimento sem perfil do cliente]
 
 ### Limitações Declaradas
+>
 > O que o agente NÃO faz?
 
-[Liste aqui as limitações explícitas do agente]
+- Não aceita perguntas fora do escopo da solução.
+- Não aceita pedidos para ignorar o contexto proposto.
+- Não sugere investimentos suspeitos ao usuário
